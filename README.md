@@ -5,6 +5,6 @@ This is a fun project I do when I am bored. It doesn't use NLP yet. Therefore, i
 ## How do I train Tiel?
 Just run the script. A SQLite database `memory.db` will be created with a table with two fields to store all your inputs and the corresponding training responses as you train Tiel. You can either ask and train the robot or hack your way into to the database and add your own statement and response combinations.
 ## Plans
-Supercharge Tiel with NLTK.
-Teach emotions (add more fields).
-Take over the world.
+* Supercharge Tiel with NLTK.
+* Teach emotions (add more fields).
+* Take over the world.
