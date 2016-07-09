@@ -56,7 +56,7 @@ class Robot(object):
 	def speak(self, response_data):
 		goodbye = ['bye', 'see you later', 'bubye', 'goodbye' ]
 		print "[Tiel] %s" %response_data.capitalize()
-		if response_data in goodbye:
+		if response_data.lower() in goodbye:
 			exit()
 		else:
 			self.listen()
