@@ -21,26 +21,27 @@ class Robot(object):
 		return response_memory
 
 	def listen(self):
-		user_voice = raw_input("[You] ").lower()
+		user_voice = raw_input("[You] ")
 		self.process(user_voice)
 
 	def process(self, user_voice):
 		
 		def remember(user_voice):
 			thoughts = self.load_memory(user_voice)
+			print thoughts
 			if thoughts:
 				for u, r in thoughts:
-					user_data = u.lower()
-					response_data = r.capitalize()
+					user_data = u
+					response_data = r
 			else:
 				user_data = None
-				response_data = "..."
+				response_data = None
 
 			return user_data, response_data
 
 		def learn(user_voice):
 			if user_voice != None:
-				learned_response = raw_input("[Tiel] "+random.choice(init_memory['question'])+"\n").lower()
+				learned_response = raw_input("[Tiel] "+random.choice(init_memory['question'])+"\n")
 				c.execute('INSERT INTO response_memory(user_voice, response) VALUES(?,?)', (user_voice, learned_response))
 				conn.commit()
 				self.listen()
@@ -55,8 +56,8 @@ class Robot(object):
 
 	def speak(self, response_data):
 		goodbye = ['bye', 'see you later', 'bubye', 'goodbye' ]
-		print "[Tiel] %s" %response_data.capitalize()
-		if response_data.lower() in goodbye:
+		print "[Tiel] %s" %response_data
+		if response_data in goodbye:
 			exit()
 		else:
 			self.listen()
