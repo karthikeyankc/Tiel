@@ -39,7 +39,7 @@ class Robot(object):
 			return user_data, response_data
 
 		def learn(user_voice):
-			if user_data != None:
+			if user_voice != None:
 				learned_response = raw_input("[Tiel] "+random.choice(init_memory['question'])+"\n").lower()
 				c.execute('INSERT INTO response_memory(user_voice, response) VALUES(?,?)', (user_voice, learned_response))
 				conn.commit()
